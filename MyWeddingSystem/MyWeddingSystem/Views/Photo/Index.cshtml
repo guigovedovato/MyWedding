@@ -1,0 +1,42 @@
+﻿
+@{
+    var AuthUser = Session["AuthUser"] as MyWeddingSystem.Models.ViewModel.UserView;
+}
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>
+                Veja o que já fizemos <b>@AuthUser.Name</b>.
+                <br />
+                Essas são as fotos de nossa união no civil.
+            </h2>
+        </header>
+    </section>
+
+    <!-- unitegallery -->
+    <script type='text/javascript' src='~/Content/unitegallery/js/unitegallery.min.js'></script>
+
+    <link rel='stylesheet' href='~/Content/unitegallery/css/unite-gallery.css' type='text/css' />
+    <script type='text/javascript' src='~/Content/unitegallery/themes/default/ug-theme-default.js'></script>
+    <link rel='stylesheet' href='~/Content/unitegallery/themes/default/ug-theme-default.css' type='text/css' />
+
+    <div class="box">
+        <div id="gallery" style="display:none;">
+            @foreach (var item in Model)
+            {
+                <img alt="@item"
+                 src="Content/Images/photos/@(String.Format("{0}.{1}", item, "jpg"))"
+                 data-image="Content/Images/photos/@(String.Format("{0}.{1}", item, "jpg"))"
+                 data-description="@item">
+            }
+        </div>
+
+        <script type="text/javascript">
+            $(function ($) {
+                $("#gallery").unitegallery({ slider_scale_mode: "fit" });
+            });
+        </script>
+
+    </div>
+</section>

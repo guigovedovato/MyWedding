@@ -1,0 +1,46 @@
+﻿@model MyWeddingSystem.Models.ViewModel.GuestView
+
+@{
+    var AuthUser = Session["AuthUser"] as MyWeddingSystem.Models.ViewModel.UserView;
+}
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>
+                Confirme sua presença <b>@Model.UserName</b>
+                <br />
+                Ficaremos muito felizes! 
+                <br />
+                Lembrese, a data final é <b>@System.Configuration.ConfigurationManager.AppSettings["DEADLINE"].ToString()</b>
+            </h2>
+        </header>
+    </section>
+
+    <div class="box">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <h3>@Html.LabelFor(model => model.Quantity)</h3>
+            <div class="row uniform 50%">
+                <div class="6u 12u(mobilep)">
+                    @Html.EditorFor(model => model.Quantity)
+                    @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row uniform">
+                <div class="12u">
+                    <ul class="actions align-center">
+                        <li><input type="submit" id="btConfirmar" value="Confirmar"  class="button special"/></li>
+                    </ul>
+                </div>
+            </div>
+            @Html.HiddenFor(model => model.UserID)
+            @Html.HiddenFor(model => model.UserName)
+            <span style="color:#e89980; padding-bottom:-8em;">@Model.Message</span>
+        }
+        <a href="/Home">@ViewBag.Back</a>
+    </div>
+</section>
+
+

@@ -1,0 +1,25 @@
+﻿@model List<MyWeddingSystem.Models.ViewModel.UserView>
+
+@{
+    Layout = "";
+}
+
+<div class="box">
+    @if (Model != null)
+    {
+        if (string.IsNullOrEmpty(Model.FirstOrDefault().Message))
+        {
+            foreach (var item in Model)
+            {
+                <p style="border: 1px solid black; margin: 0 1px 5px 0; padding: 10px; display:inline-block; font-size:large; width:194px;">
+                    Usuário: <b>@item.Login.ToLower()</b> <br />
+                    Senha: <b>@item.FirstPassword</b>
+                </p>
+            }
+        }
+        else
+        {
+            <p>@Model.FirstOrDefault().Message</p>
+        }
+    }
+</div>

@@ -1,0 +1,14 @@
+﻿
+@{
+    Page.Title = ViewBag.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main" class="container 75%">
+    <div class="box">
+        <h2>Unauthorized</h2>
+        <spanp>Acesso Negado</spanp>
+        <p>Você não possui acesso a esta página!</p>
+        <p><a href="@Url.Action("Index", "Home")">Retornar ao sistema</a></p>
+        </div>
+</section>

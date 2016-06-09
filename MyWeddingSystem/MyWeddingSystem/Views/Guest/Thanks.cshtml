@@ -1,0 +1,26 @@
+﻿@model MyWeddingSystem.Models.ViewModel.GuestView
+
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>
+                Obrigado <b>@Model.UserName</b>.
+                <br />
+                Recebemos sua confirmação de @Model.Quantity pessoa(s).
+            </h2>
+        </header>
+    </section>
+
+    <div class="box special">
+        <section>
+            <span class="icon major fa-heart accent5"></span>
+            <h3>Gratidão</h3>
+            <p><b>Ficaremos felizes</b> por fazer parte dessa celebração de um <b style="font-size:1.5em">novo começo</b>.</p>
+        </section>
+        <a href="/Home">@ViewBag.Back</a>
+    </div>
+</section>
+
+
+

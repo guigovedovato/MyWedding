@@ -1,0 +1,76 @@
+﻿@model List<MyWeddingSystem.Models.ViewModel.LogView>
+
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>
+                @ViewBag.Type
+                <br />
+                Clique no ID para ver o detalhe.
+            </h2>
+        </header>
+    </section>
+
+    <div class="box">
+        @if (Model.Count > 0)
+        {
+            if (Model.FirstOrDefault().ID != 0)
+            {
+                if (ViewBag.Index)
+                {
+                    <form id="loginform" class="form-horizontal" role="form" action="@Url.Action("LogByUserID", "Log")" method="get" novalidate="novalidate">
+                        <div class="row uniform 50%">
+                            <div class="9u 12u(mobilep)">
+                                Selecione um usuário:
+                                <select name="logUserID" id="logUserID">
+                                    <option value="">- Usuários -</option>
+                                    @foreach (var item in Model.GroupBy(c => c.UserID).Select(g => g.FirstOrDefault()).ToList())
+                                    {
+                                        <option value="@item.UserID">@item.UserName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="3u 12u(mobilep)">
+                                <br />
+                                <input type="submit" id="btBuscar" value="Buscar" class="fit" />
+                            </div>
+                        </div>
+                    </form>
+                    <hr />
+                }
+                <table class="alt">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Message de Erro</th>
+                            <th>Data</th>
+                            <th>Usuário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a href="~/Log/LogByID/@item.ID">@item.ID</a></td>
+                                <td>@item.Message</td>
+                                <td>@item.CreatedAt</td>
+                                <td>@item.UserName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                if (!ViewBag.Index)
+                {
+                    <a href="/Log">@ViewBag.Back</a>
+                }
+            }
+            else
+            {
+                @Model.FirstOrDefault().Message
+            }
+        }
+    </div>
+</section>
+
+

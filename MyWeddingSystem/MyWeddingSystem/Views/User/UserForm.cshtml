@@ -1,0 +1,33 @@
+﻿@model MyWeddingSystem.Models.ViewModel.UserView
+
+<div class="box">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row uniform 50%">
+            @Html.LabelFor(model => model.Login)
+            <div class="6u 12u(mobilep)">
+                <input type="text" name="Login" id="Login" value="@Model.Login" maxlength="15" />
+                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "error" })
+            </div>
+        </div>
+            <div class="row uniform 50%">
+                @Html.LabelFor(model => model.Name)
+                <div class="6u 12u(mobilep)">
+                    <input type="text" name="Name" id="Name" value="@Model.Name" />
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row uniform">
+                <div class="12u">
+                    <ul class="actions align-center">
+                        <li><input type="submit" id="btCadastrar" value="Cadastrar" class="button special" /></li>
+                    </ul>
+                </div>
+            </div>
+            <span style="color:#e89980; padding-bottom:-8em;">@Model.Message</span>
+    }
+    <a href="/User">@ViewBag.Back</a>
+</div>
+

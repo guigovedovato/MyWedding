@@ -1,0 +1,45 @@
+﻿@model MyWeddingSystem.Models.ViewModel.LogView
+
+@{
+    var AuthUser = Session["AuthUser"] as MyWeddingSystem.Models.ViewModel.UserView;
+}
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>
+                Log gerado por: <b>@Model.UserName</b>
+                <br />
+                Mensagem: @Model.Message
+            </h2>
+        </header>
+    </section>
+
+    <div class="box">
+        <b>StackTrace:</b> @Model.StackTrace
+        <br />
+        <b>InnerException:</b> @Model.InnerException
+        <br />
+        <b>CreatedAt:</b> @Model.CreatedAt
+        <br />
+        <b>LogType:</b> @Model.LogType
+        <br />
+        <b>Controller:</b> @Model.Controller
+        <br />
+        <b>Action:</b> @Model.Action
+        <br />
+        <b>Class:</b> @Model.Class
+        <br />
+        <b>Method:</b> @Model.Method
+        <br />
+        <br />
+        <a href="#" onclick="goBack()">@ViewBag.Back</a>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</section>
+
+

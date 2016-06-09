@@ -1,0 +1,86 @@
+﻿@{
+    var AuthUser = Session["AuthUser"] as MyWeddingSystem.Models.ViewModel.UserView;
+}
+<!-- Main -->
+<section id="main" class="container">
+
+    <section class="box special">
+        <header class="major">
+            <h2>
+                Seja Bem Vindo(a) <b>@AuthUser.Name</b>
+                <br />
+                É com enorme prazer que nós o(a) recebemos em nosso site.
+            </h2>
+            <p>
+                <b style="font-size:1.1em">Parentes e amigos</b>, é com alegria que estamos os convidando para a <b style="font-size:1.3em">celebração de nossa união</b>.<br /><br />
+                Para quem não sabe, estamos indo morar fora do Brasil, o Rodrigo vai dar entrada na
+                <i>cidadania Italiana</i> dele e depois iremos para <b>Dublin na Irlanda</b> 
+                e queremos dividir e partilhar de nossa alegria com vocês.<br /><br />
+                Será uma <u>celebração simples</u>, com muita luz e bênçãos dos amigos do Alto e com todos
+                vocês que fizeram e fazem parte de nossa história, <span style="font-size:1.3em">contamos com a presença de todos</span>.
+            </p>
+        </header>
+        <span class="image featured"><img src="~/Content/Images/pic01.jpg" alt="" /></span>
+    </section>
+
+    <section class="box special features">
+        <div class="features-row">
+            <section>
+                <span class="icon major fa-coffee accent2"></span>
+                <h3>Celebração</h3>
+                <p>Iremos celebrar nossa união no sábado pela manhã no dia <b style="font-size:1.5em">25 de Março de 2017</b> às <b style="font-size:1.5em">9h</b> com um delicioso <i>BRUNCH</i>.</p>
+            </section>
+            <section>
+                <span class="icon major fa-beer accent3"></span>
+                <h3>Despedida</h3>
+                <p>Na parte da tarde, noite e domingo todo faremos uma despedida, com um <b style="font-size:1.5em">churrasco comunitário</b></p>
+            </section>
+        </div>
+        <div class="features-row">
+            <section>
+                <span class="icon major fa-glass accent4"></span>
+                <h3>Colaboração</h3>
+                <p>Vamos preparar toda parte de saladas e petiscos e <b>cada um traz um pouco de carne e bebida</b>.</p>
+            </section>
+            <section>
+                <span class="icon major fa-heart accent5"></span>
+                <h3>Gratidão</h3>
+                <p><b>Ficaremos felizes</b> com quem puder ficar para fazer parte dessa celebração de um <b style="font-size:1.5em">novo começo</b>.</p>
+            </section>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="6u 12u(narrower)">
+
+            <section class="box special">
+                <span class="image featured"><img src="~/Content/Images/pic02.jpg" alt="" /></span>
+                <h3>Lembranças</h3>
+                <p>Como não poderemos levar nada material conosco, teremos um cantinho de mensagens com
+                   uma urna, papéis e envelopes para que nos deixem mensagens para quando a saudade
+                   bater podermos ler as cartinhas de vocês.</p>
+            </section>
+
+        </div>
+        <div class="6u 12u(narrower)">
+
+            <section class="box special">
+                <span class="image featured"><img src="~/Content/Images/pic03.jpg" alt="" /></span>
+                <h3>Contribuição</h3>
+                <p>E quem quiser e puder contribuir com nossa caixinha de viagem será muito bem vindo, podendo ser depositado junto com sua cartinha na urna, afinal
+                   até podermos nos estabilizar lá teremos que ter uma boa reserva, rsrsr.<br /><br />
+                </p>
+            </section>
+
+        </div>
+    </div>
+
+</section>
+
+	<!-- CTA -->
+    <section id="cta">
+
+        <h2>Somos gratos pela sua visita @AuthUser.Name</h2>
+        <p>Pedimos que confirme sua presença até <b>@System.Configuration.ConfigurationManager.AppSettings["DEADLINE"].ToString()</b> para que possamos proporcionar um agradável encontro!</p>
+
+    </section>
