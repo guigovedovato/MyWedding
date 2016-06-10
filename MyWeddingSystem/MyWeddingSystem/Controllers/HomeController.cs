@@ -12,7 +12,7 @@ namespace MyWeddingSystem.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.Title = MessagesHandler.HOMEPAGE;
+            ViewBag.Title = TranslateHandler.HOMEPAGE;
 
             return View();
         }

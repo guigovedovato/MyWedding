@@ -27,8 +27,8 @@ namespace MyWeddingSystem.Controllers
         // GET: Guest
         public ActionResult Index()
         {
-            ViewBag.Title = MessagesHandler.GUESTPAGE;
-            ViewBag.Type = MessagesHandler.GUESTTYPE;
+            ViewBag.Title = TranslateHandler.GUESTPAGE;
+            ViewBag.Type = TranslateHandler.GUESTTYPE;
 
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
@@ -43,7 +43,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                var model = new GuestView() { Message = MessagesHandler.GUESTPAGEERROR };
+                var model = new GuestView() { Message = TranslateHandler.GUESTPAGEERROR };
                 var listModel = new List<GuestView>();
                 listModel.Add(model);
                 return View(listModel);
@@ -53,8 +53,9 @@ namespace MyWeddingSystem.Controllers
         // GET: Insert
         public ActionResult Insert()
         {
-            ViewBag.Title = MessagesHandler.GUESTPAGE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.GUESTPAGE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
+            ViewBag.Confirm = TranslateHandler.CONFIRM;
             DateTime date1 = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DEADLINE"].ToString());
             if (DateTime.Compare(date1, DateTime.Now) < 0)
             {
@@ -68,14 +69,14 @@ namespace MyWeddingSystem.Controllers
         [HttpPost]
         public ActionResult Insert(GuestView guestView)
         {
-            ViewBag.Title = MessagesHandler.GUESTPAGE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.GUESTPAGE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
 
             if (!ModelState.IsValid)
             {
-                guestView.Message = MessagesHandler.FORMINVALID;
+                guestView.Message = TranslateHandler.FORMINVALID;
                 return View(guestView);
             }
 
@@ -90,7 +91,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                guestView.Message = MessagesHandler.GUESTINSERTERROR;
+                guestView.Message = TranslateHandler.GUESTINSERTERROR;
                 return View(guestView);
             }
         }

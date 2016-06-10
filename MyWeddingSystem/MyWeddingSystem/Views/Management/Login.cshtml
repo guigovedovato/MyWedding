@@ -38,7 +38,7 @@
                     <div class="row uniform">
                         <div class="12u">
                             <ul class="actions align-center">
-                                <li><input type="submit" id="btEntrar" value="Entrar" /></li>
+                                <li><input type="submit" id="bt@{@ViewBag.Enter}" value="@ViewBag.Enter" /></li>
                             </ul>
                         </div>
                     </div>
@@ -47,6 +47,7 @@
                 </form>
             </div>
         </section>
+        <div id="load"><div id="loader"></div></div>
 
         <!-- Footer -->
         <footer id="footer">
@@ -57,6 +58,8 @@
         </footer>
     </div>
 
+    
+
     <!-- Scripts -->
     <script src="../Scripts/jquery.min.js"></script>
     <script src="../Scripts/jquery.dropotron.min.js"></script>
@@ -65,6 +68,12 @@
     <script src="../Scripts/util.js"></script>
     <!--[if lte IE 8]><script src="../Scripts/ie/respond.min.js"></script><![endif]-->
     <script src="../Scripts/main.js"></script>
+
+    <script>
+        $('#bt@{@ViewBag.Enter}').click(function (event) {
+            $("#load").show();
+        })
+    </script>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 ﻿@model MyWeddingSystem.Models.ViewModel.GuestView
+@using MyWeddingSystem.Handlers
 
 @{
     var AuthUser = Session["AuthUser"] as MyWeddingSystem.Models.ViewModel.UserView;
@@ -21,17 +22,17 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            <h3>@Html.LabelFor(model => model.Quantity)</h3>
+            <h3><label for="Quantity">@TranslateHandler.GUESTQUANTITY</label></h3>
             <div class="row uniform 50%">
                 <div class="6u 12u(mobilep)">
                     @Html.EditorFor(model => model.Quantity)
-                    @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "error" })
+                    @Html.ValidationMessageFor(model => model.Quantity, @TranslateHandler.ISREQUIRED, new { @class = "error" })
                 </div>
             </div>
             <div class="row uniform">
                 <div class="12u">
                     <ul class="actions align-center">
-                        <li><input type="submit" id="btConfirmar" value="Confirmar"  class="button special"/></li>
+                        <li><input type="submit" id="bt@{@ViewBag.Confirm}" value="@ViewBag.Confirm"  class="button special"/></li>
                     </ul>
                 </div>
             </div>

@@ -30,7 +30,7 @@ namespace MyWeddingSystem.Controllers
 
         public ActionResult Unauthorized()
         {
-            ViewBag.Title = MessagesHandler.UNAUTHORIZEDPAGE;
+            ViewBag.Title = TranslateHandler.UNAUTHORIZEDPAGE;
 
             return View();
         }
@@ -38,7 +38,8 @@ namespace MyWeddingSystem.Controllers
         [HttpGet]
         public ActionResult Login(string ReturnUrl)
         {
-            ViewBag.Title = MessagesHandler.LOGUINPAGE;
+            ViewBag.Title = TranslateHandler.LOGUINPAGE;
+            ViewBag.Enter = TranslateHandler.ENTER;
 
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
@@ -65,6 +66,8 @@ namespace MyWeddingSystem.Controllers
         [HttpPost]
         public ActionResult Login(UserView userView, string ReturnUrl)
         {
+            ViewBag.Enter = TranslateHandler.ENTER;
+
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
 
@@ -77,7 +80,7 @@ namespace MyWeddingSystem.Controllers
                 if ((string.IsNullOrWhiteSpace(userView.Login) && string.IsNullOrWhiteSpace(userView.Password)) ||
                     (userView.Login != null && string.IsNullOrWhiteSpace(userView.Password)) || (string.IsNullOrWhiteSpace(userView.Login) && userView.Password != null))
                 {
-                    TempData["ErrorMessage"] = MessagesHandler.LOGINANDPASS;
+                    TempData["ErrorMessage"] = TranslateHandler.LOGINANDPASS;
                     logRepository.Insert(systemUser, LogType.ERROR, local, string.Format("{0} - {1}",TempData["ErrorMessage"].ToString(), userView.Login));
                     return View(userView);
                 }
@@ -93,7 +96,7 @@ namespace MyWeddingSystem.Controllers
 
                         if (authenticatedUser == null)
                         {
-                            TempData["ErrorMessage"] = MessagesHandler.LOGININVALID;
+                            TempData["ErrorMessage"] = TranslateHandler.LOGININVALID;
                             logRepository.Insert(systemUser, LogType.ERROR, local, string.Format("{0} - {1}", TempData["ErrorMessage"].ToString(), userView.Login));
                             return Redirect(ReturnUrl);
                         }
@@ -114,7 +117,7 @@ namespace MyWeddingSystem.Controllers
                     {
                         logRepository.Insert(ex, systemUser, LogType.ERROR, local);
 
-                        TempData["ErrorMessage"] = MessagesHandler.LOGINERROR;
+                        TempData["ErrorMessage"] = TranslateHandler.LOGINERROR;
                         return View(userView);
                     }
                 }
@@ -125,7 +128,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, systemUser, LogType.ERROR, local);
 
-                TempData["ErrorMessage"] = MessagesHandler.LOGINERROR;
+                TempData["ErrorMessage"] = TranslateHandler.LOGINERROR;
                 return RedirectToAction("Login");
             }
         }

@@ -1,6 +1,5 @@
 ﻿using MyWeddingSystem.Handlers;
 using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyWeddingSystem.Models.ViewModel
@@ -9,11 +8,9 @@ namespace MyWeddingSystem.Models.ViewModel
     {
         public int ID { get; set; }
         [MaxLength(15)]
-        [Required(ErrorMessage = MessagesHandler.ISREQUIRED)]
-        [DisplayName(MessagesHandler.USERLOGIN)]
+        [Required]
         public string Login { get; set; }
-        [Required(ErrorMessage = MessagesHandler.ISREQUIRED)]
-        [DisplayName(MessagesHandler.USERNAME)]
+        [Required]
         public string Name { get; set; }
         public string Password { get; set; }
         public int Profile { get; set; }

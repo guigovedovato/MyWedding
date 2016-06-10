@@ -367,9 +367,6 @@
     <Content Include="Content\unitegallery\themes\video\ug-theme-video.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\ie\backgroundsize.min.htc" />
     <Content Include="Scripts\ie\html5shiv.js" />
@@ -396,9 +393,7 @@
     <Content Include="Views\Management\Unauthorized.cshtml" />
     <Content Include="Views\Management\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -407,7 +402,6 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="App_Browsers\qt.browser" />
-    <None Include="Project_Readme.html" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Photo\Index.cshtml" />
     <Content Include="Views\Log\Index.cshtml" />
@@ -420,9 +414,6 @@
     <Content Include="Views\User\Thanks.cshtml" />
     <Content Include="Views\User\SavePDF.cshtml" />
     <Content Include="Views\User\UserForm.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606071607542_FirstTables.resx">

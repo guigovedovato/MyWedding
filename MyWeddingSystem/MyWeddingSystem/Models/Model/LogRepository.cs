@@ -65,7 +65,7 @@ namespace MyWeddingSystem.Models.Model
             Insert(this);
         }
 
-        public List<LogRepository> GetLogByUserID(int userID)
+        public List<LogRepository> GetLogByUserID(int? userID)
         {
             return dbSet.AsNoTracking().Where(x => x.UserID == userID).ToList();
         }

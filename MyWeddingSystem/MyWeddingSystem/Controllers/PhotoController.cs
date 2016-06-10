@@ -14,8 +14,8 @@ namespace MyWeddingSystem.Controllers
         // GET: Photo
         public ActionResult Index()
         {
-            ViewBag.Title = MessagesHandler.PHOTOPAGE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.PHOTOPAGE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
 
             var sPath = System.AppDomain.CurrentDomain.BaseDirectory + "Content\\Images\\photos\\";
 

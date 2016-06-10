@@ -28,9 +28,10 @@ namespace MyWeddingSystem.Controllers
         // GET: Log
         public ActionResult Index()
         {
-            ViewBag.Title = MessagesHandler.LOGPAGE;
-            ViewBag.Type = MessagesHandler.LOGTYPE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.LOGPAGE;
+            ViewBag.Type = TranslateHandler.LOGTYPE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
+            ViewBag.Search = TranslateHandler.SEARCH;
             ViewBag.Index = true;
 
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
@@ -45,7 +46,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                var model = new LogView() { Message = MessagesHandler.LOGPAGEERROR };
+                var model = new LogView() { Message = TranslateHandler.LOGPAGEERROR };
                 var listModel = new List<LogView>();
                 listModel.Add(model);
                 return View(listModel);
@@ -55,8 +56,8 @@ namespace MyWeddingSystem.Controllers
         // GET: LogByID
         public ActionResult LogByID(int id)
         {
-            ViewBag.Title = MessagesHandler.LOGPAGE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.LOGPAGE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
 
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
@@ -70,18 +71,23 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                TempData["ErrorMessage"] = string.Format(MessagesHandler.LOGBYIDERROR, id);
+                TempData["ErrorMessage"] = string.Format(TranslateHandler.LOGBYIDERROR, id);
                 var model = new LogView() { Message = TempData["ErrorMessage"].ToString() };
                 return View("LogDetail", model);
             }
             }
 
         // GET: LogByUserID
-        public ActionResult LogByUserID(int logUserID)
+        public ActionResult LogByUserID(int? logUserID)
         {
-            ViewBag.Title = MessagesHandler.LOGPAGE;
-            ViewBag.Type = MessagesHandler.LOGTYPE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            if (!logUserID.HasValue)
+            {
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Title = TranslateHandler.LOGPAGE;
+            ViewBag.Type = TranslateHandler.LOGTYPE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
             ViewBag.Index = false;
 
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
@@ -96,7 +102,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                var model = new LogView() { Message = string.Format(MessagesHandler.LOGBYUSERIDERROR, logUserID) };
+                var model = new LogView() { Message = string.Format(TranslateHandler.LOGBYUSERIDERROR, logUserID) };
                 var listModel = new List<LogView>();
                 listModel.Add(model);
                 return View(listModel);

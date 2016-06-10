@@ -30,9 +30,10 @@ namespace MyWeddingSystem.Controllers
         // GET: User
         public ActionResult Index()
         {
-            ViewBag.Title = MessagesHandler.USERPAGE;
-            ViewBag.Type = MessagesHandler.UserTYPE;
-            ViewBag.Print = MessagesHandler.PRINT;
+            ViewBag.Title = TranslateHandler.USERPAGE;
+            ViewBag.Type = TranslateHandler.USERTYPE;
+            ViewBag.Print = TranslateHandler.PRINT;
+            ViewBag.New = TranslateHandler.NEW;
 
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
@@ -47,7 +48,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                var model = new UserView() { Message = MessagesHandler.USERPAGEERROR };
+                var model = new UserView() { Message = TranslateHandler.USERPAGEERROR };
                 var listModel = new List<UserView>();
                 listModel.Add(model);
                 return View(listModel);
@@ -70,8 +71,10 @@ namespace MyWeddingSystem.Controllers
         // GET: Insert
         public ActionResult Insert()
         {
-            ViewBag.Title = MessagesHandler.USERPAGE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.USERPAGE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
+            ViewBag.Register = TranslateHandler.REGISTER;
+
             return View(new UserView());
         }
 
@@ -79,14 +82,16 @@ namespace MyWeddingSystem.Controllers
         [HttpPost]
         public ActionResult Insert(UserView userView)
         {
-            ViewBag.Title = MessagesHandler.USERPAGE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.USERPAGE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
+            ViewBag.Register = TranslateHandler.REGISTER;
+
             local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
 
             if (!ModelState.IsValid)
             {
-                userView.Message = MessagesHandler.FORMINVALID;
+                userView.Message = TranslateHandler.FORMINVALID;
                 return View(userView);
             }
 
@@ -101,7 +106,7 @@ namespace MyWeddingSystem.Controllers
                 }
                 else
                 {
-                    userView.Message = MessagesHandler.USERALREADYINSERTED;
+                    userView.Message = TranslateHandler.USERALREADYINSERTED;
                     return View(userView);
                 }
             }
@@ -109,7 +114,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                userView.Message = string.Format(MessagesHandler.USERINSERTERROR, userView.Login);
+                userView.Message = string.Format(TranslateHandler.USERINSERTERROR, userView.Login);
                 return View(userView);
             }
         }
@@ -139,7 +144,7 @@ namespace MyWeddingSystem.Controllers
             {
                 logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
 
-                var model = new UserView() { Message = MessagesHandler.USERPRINT };
+                var model = new UserView() { Message = TranslateHandler.USERPRINT };
                 var listModel = new List<UserView>();
                 listModel.Add(model);
                 return View(listModel);

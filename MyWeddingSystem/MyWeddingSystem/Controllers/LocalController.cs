@@ -12,8 +12,8 @@ namespace MyWeddingSystem.Controllers
         // GET: Local
         public ActionResult Index()
         {
-            ViewBag.Title = MessagesHandler.LOCALPAGE;
-            ViewBag.Back = MessagesHandler.BACKTOLIST;
+            ViewBag.Title = TranslateHandler.LOCALPAGE;
+            ViewBag.Back = TranslateHandler.BACKTOLIST;
 
             if (userSession.AuthUser.Confirmded)
             {

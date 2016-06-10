@@ -1,4 +1,6 @@
-﻿<!DOCTYPE HTML>
+﻿@using MyWeddingSystem.Handlers
+
+<!DOCTYPE HTML>
 <!--
     Alpha by HTML5 UP
     html5up.net | ajlkn
@@ -27,29 +29,29 @@
                 <img alt="MyWedding" src="~/Content/Images/logo.png" style="max-width:20px; margin-top:18px;" /><h1>@Html.ActionLink("MyWedding", "Index", "Home") - @System.Configuration.ConfigurationManager.AppSettings["WHO"].ToString()</h1>
                 <nav id="nav">
                     <ul>
-                        <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "a-hover" })</li>
+                        <li>@Html.ActionLink(TranslateHandler.HOME, "Index", "Home", null, new { @class = "a-hover" })</li>
                         @if (DateTime.Compare(date1, DateTime.Now) >= 0)
                         {
                             if (AuthUser.Profile.Equals((int)MyWeddingSystem.Models.Model.Anemic.UserProfile.ADM))
                             {
-                                <li>@Html.ActionLink("Lista de Convidados", "Index", "Guest", null, new { @class = "a-hover" })</li>
+                                <li>@Html.ActionLink(TranslateHandler.GUESTLIST, "Index", "Guest", null, new { @class = "a-hover" })</li>
                             }
                             else
                             {
-                                <li>@Html.ActionLink("Confirmar Presença", "Insert", "Guest", null, new { @class = "a-hover" })</li>
+                                <li>@Html.ActionLink(TranslateHandler.ATTENDANCE, "Insert", "Guest", null, new { @class = "a-hover" })</li>
                             }
                         }
-                        <li>@Html.ActionLink("Fotos", "Index", "Photo", null, new { @class = "a-hover" })</li>
+                        <li>@Html.ActionLink(TranslateHandler.PHOTO, "Index", "Photo", null, new { @class = "a-hover" })</li>
                         @if (AuthUser.Confirmded)
                         {
-                            <li>@Html.ActionLink("Local da Festa", "Index", "Local", null, new { @class = "a-hover" })</li>
+                            <li>@Html.ActionLink(TranslateHandler.LOCAL, "Index", "Local", null, new { @class = "a-hover" })</li>
                         }
                         @if (AuthUser.Profile.Equals((int)MyWeddingSystem.Models.Model.Anemic.UserProfile.ADM))
                         {
-                            <li>@Html.ActionLink("Usuários", "Index", "User", null, new { @class = "a-hover" })</li>
-                                <li>@Html.ActionLink("Log", "Index", "Log", null, new { @class = "a-hover" })</li>
+                            <li>@Html.ActionLink(TranslateHandler.USER, "Index", "User", null, new { @class = "a-hover" })</li>
+                                <li>@Html.ActionLink(TranslateHandler.LOG, "Index", "Log", null, new { @class = "a-hover" })</li>
                         }
-                        <li>@Html.ActionLink("Sair", "Logout", "Management", null, new { @class = "a-hover" })</li>
+                        <li>@Html.ActionLink(TranslateHandler.LOGOUT, "Logout", "Management", null, new { @class = "a-hover" })</li>
                     </ul>
                 </nav>
             </header>
