@@ -2,8 +2,8 @@
 
 namespace MyWeddingSystem.App_Start
 {
-    public interface IUserSession
+    public interface ISession
     {
-        UserView AuthUser { get; set; }
+        UserView LoggedUser { get; set; }
     }
 }

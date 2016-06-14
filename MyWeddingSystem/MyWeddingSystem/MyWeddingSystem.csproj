@@ -139,26 +139,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\HttpContextUserSession.cs" />
-    <Compile Include="App_Start\IUserSession.cs" />
+    <Compile Include="App_Start\LoggedUserSession.cs" />
+    <Compile Include="App_Start\ISession.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Attributes\AccessDeniedAuthorizeAttribute.cs" />
-    <Compile Include="Attributes\SessionExpireFilterAttribute.cs" />
+    <Compile Include="Attributes\AccessDeniedAttribute.cs" />
+    <Compile Include="Attributes\SessionExpireAttribute.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalController.cs" />
     <Compile Include="Controllers\LogController.cs" />
-    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\LogonController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Filters\NoCacheGlobalActionFilter.cs" />
+    <Compile Include="Filters\NoCacheFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Handlers\GlobalExceptionHandler.cs" />
-    <Compile Include="Handlers\MessagesHandler.cs" />
+    <Compile Include="Handlers\ExceptionHandler.cs" />
+    <Compile Include="Handlers\TranslateHandler.cs" />
     <Compile Include="Migrations\201606071607542_FirstTables.cs" />
     <Compile Include="Migrations\201606071607542_FirstTables.Designer.cs">
       <DependentUpon>201606071607542_FirstTables.cs</DependentUpon>
@@ -390,8 +390,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Management\Unauthorized.cshtml" />
-    <Content Include="Views\Management\Login.cshtml" />
+    <Content Include="Views\Logon\Unauthorized.cshtml" />
+    <Content Include="Views\Logon\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

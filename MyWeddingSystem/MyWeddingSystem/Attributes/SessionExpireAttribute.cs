@@ -7,18 +7,18 @@ using System.Web.Security;
 namespace MyWeddingSystem.Attributes
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class SessionExpireFilterAttribute : ActionFilterAttribute
+    public class SessionExpireAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            HttpContext ctx = HttpContext.Current;
+            HttpContext context = HttpContext.Current;
 
-            var userSession = new HttpContextUserSession();
+            var Session = new LoggedUserSession();
 
-            if (userSession.AuthUser == null && HttpContext.Current.User.Identity.IsAuthenticated)
+            if (Session.LoggedUser == null && HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 FormsAuthentication.SignOut();
-                filterContext.Result = new RedirectResult("~/Management/Login");
+                filterContext.Result = new RedirectResult("~/Logon/Login");
                 return;
             }
 

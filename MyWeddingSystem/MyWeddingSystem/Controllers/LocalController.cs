@@ -15,13 +15,13 @@ namespace MyWeddingSystem.Controllers
             ViewBag.Title = TranslateHandler.LOCALPAGE;
             ViewBag.Back = TranslateHandler.BACKTOLIST;
 
-            if (userSession.AuthUser.Confirmded)
+            if (userSession.LoggedUser.Confirmded)
             {
                 return View();
             }
             else
             {
-                return RedirectToAction("Unauthorized", "Management");
+                return RedirectToAction("Unauthorized", "Logon");
             }
         }
     }

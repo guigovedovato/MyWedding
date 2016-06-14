@@ -8,7 +8,7 @@ namespace MyWeddingSystem
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new NoCacheGlobalActionFilter());
+            filters.Add(new NoCacheFilter());
         }
     }
 }

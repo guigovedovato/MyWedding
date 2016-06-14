@@ -10,7 +10,7 @@ using MyWeddingSystem.Models.ViewModel;
 
 namespace MyWeddingSystem.Controllers
 {
-    [AccessDeniedAuthorize(Roles = "ADM")]
+    [AccessDenied(Roles = "ADM")]
     public class LogController : BaseController
     {
         public LogController()
@@ -44,7 +44,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch(Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 var model = new LogView() { Message = TranslateHandler.LOGPAGEERROR };
                 var listModel = new List<LogView>();
@@ -69,7 +69,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch (Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 TempData["ErrorMessage"] = string.Format(TranslateHandler.LOGBYIDERROR, id);
                 var model = new LogView() { Message = TempData["ErrorMessage"].ToString() };
@@ -100,7 +100,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch (Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 var model = new LogView() { Message = string.Format(TranslateHandler.LOGBYUSERIDERROR, logUserID) };
                 var listModel = new List<LogView>();

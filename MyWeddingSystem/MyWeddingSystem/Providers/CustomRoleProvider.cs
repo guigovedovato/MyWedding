@@ -45,7 +45,7 @@ namespace MyWeddingSystem.Providers
         public override string[] GetRolesForUser(string username)
         {
             UserRepository userRepository = new UserRepository();
-            return userRepository.GetGroupByLogin(username);
+            return userRepository.GetRolesByLogin(username);
         }
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)

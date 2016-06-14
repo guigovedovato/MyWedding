@@ -41,7 +41,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch (Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 var model = new GuestView() { Message = TranslateHandler.GUESTPAGEERROR };
                 var listModel = new List<GuestView>();
@@ -59,10 +59,10 @@ namespace MyWeddingSystem.Controllers
             DateTime date1 = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DEADLINE"].ToString());
             if (DateTime.Compare(date1, DateTime.Now) < 0)
             {
-                return RedirectToAction("Unauthorized", "Management");
+                return RedirectToAction("Unauthorized", "Logon");
             }
 
-            return View(new GuestView() { UserID = userSession.AuthUser.ID, UserName = userSession.AuthUser.Name, Quantity = null });
+            return View(new GuestView() { UserID = userSession.LoggedUser.ID, UserName = userSession.LoggedUser.Name, Quantity = null });
         }
 
         // POST: Insert
@@ -89,7 +89,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch (Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 guestView.Message = TranslateHandler.GUESTINSERTERROR;
                 return View(guestView);
@@ -98,7 +98,7 @@ namespace MyWeddingSystem.Controllers
 
         private void Confirmed(GuestView model)
         {
-            userSession.AuthUser.Confirmded = true;
+            userSession.LoggedUser.Confirmded = true;
         }
     }
 }

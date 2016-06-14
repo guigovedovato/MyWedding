@@ -7,7 +7,7 @@ using System.Net;
 
 namespace MyWeddingSystem.Handlers
 {
-    public class GlobalExceptionHandler : ExceptionHandler
+    public class ExceptionHandler : System.Web.Http.ExceptionHandling.ExceptionHandler
     {
         public override void Handle(ExceptionHandlerContext context)
         {
@@ -32,19 +32,19 @@ namespace MyWeddingSystem.Handlers
 
     public class ErrorMessageResult : IHttpActionResult
     {
-        private HttpRequestMessage _request;
-        private HttpResponseMessage _httpResponseMessage;
+        private HttpRequestMessage httpRequestMessage;
+        private HttpResponseMessage httpResponseMessage;
 
         public ErrorMessageResult(HttpRequestMessage request, HttpResponseMessage httpResponseMessage)
         {
-            _request = request;
-            _httpResponseMessage = httpResponseMessage;
+            this.httpRequestMessage = request;
+            this.httpResponseMessage = httpResponseMessage;
 
         }
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
-            return Task.FromResult(_httpResponseMessage);
+            return Task.FromResult(httpResponseMessage);
         }
     }
 }

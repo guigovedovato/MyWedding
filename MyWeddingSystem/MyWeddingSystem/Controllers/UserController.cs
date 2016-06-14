@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace MyWeddingSystem.Controllers
 {
-    [AccessDeniedAuthorize(Roles = "ADM")]
+    [AccessDenied(Roles = "ADM")]
     public class UserController : BaseController
     {
         private UserRepository userRepository;
@@ -46,7 +46,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch (Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 var model = new UserView() { Message = TranslateHandler.USERPAGEERROR };
                 var listModel = new List<UserView>();
@@ -112,7 +112,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch (Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 userView.Message = string.Format(TranslateHandler.USERINSERTERROR, userView.Login);
                 return View(userView);
@@ -142,7 +142,7 @@ namespace MyWeddingSystem.Controllers
             }
             catch (Exception ex)
             {
-                logRepository.Insert(ex, userSession.AuthUser, LogType.ERROR, local);
+                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
 
                 var model = new UserView() { Message = TranslateHandler.USERPRINT };
                 var listModel = new List<UserView>();

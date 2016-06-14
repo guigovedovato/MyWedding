@@ -8,10 +8,10 @@ using MyWeddingSystem.Models.Model.Anemic;
 
 namespace MyWeddingSystem.Controllers
 {
-    [SessionExpireFilter]
+    [SessionExpire]
     public class BaseController : Controller
     {
-        protected IUserSession userSession;
+        protected ISession userSession;
         protected LogRepository logRepository;
         protected UserView systemUser;
         protected MapperConfiguration config;
@@ -20,7 +20,7 @@ namespace MyWeddingSystem.Controllers
 
         public BaseController()
         {
-            userSession = new HttpContextUserSession();
+            userSession = new LoggedUserSession();
             logRepository = new LogRepository();
             systemUser = new UserView() { ID = 0, Login = "System" };
             local = new LogLocal();

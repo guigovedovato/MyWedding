@@ -28,7 +28,7 @@ namespace MyWeddingSystem.Models.Model
 
         public UserRepository() : base(MyWeddingContext.Instance) { }
 
-        public string[] GetGroupByLogin(string login)
+        public string[] GetRolesByLogin(string login)
         {
             UserProfile profile = (UserProfile)dbSet.AsNoTracking().Where(x => x.Login.Equals(login)).Select(x => x.Profile).FirstOrDefault();
             return new string[] { profile.ToString() };

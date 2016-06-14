@@ -12,9 +12,9 @@ using MyWeddingSystem.Utils;
 
 namespace MyWeddingSystem.Controllers
 {
-    public class ManagementController : BaseController
+    public class LogonController : BaseController
     {
-        public ManagementController()
+        public LogonController()
         {
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<UserRepository, UserView>().ForMember(t => t.Password, opt => opt.Ignore());
@@ -22,7 +22,7 @@ namespace MyWeddingSystem.Controllers
             mapper = config.CreateMapper();
         }
 
-        // GET: Management
+        // GET: Logon
         public ActionResult Index()
         {
             return RedirectToAction("Login");
@@ -46,9 +46,9 @@ namespace MyWeddingSystem.Controllers
 
             try
             {
-                if (userSession.AuthUser != null)
+                if (userSession.LoggedUser != null)
                 {
-                    FormsAuthentication.SetAuthCookie(userSession.AuthUser.Login, false);
+                    FormsAuthentication.SetAuthCookie(userSession.LoggedUser.Login, false);
 
                     return Redirect(ReturnUrl);
                 }
@@ -111,7 +111,7 @@ namespace MyWeddingSystem.Controllers
                             authenticatedUser.Confirmded = authenticatedUser.Login.Equals("ADM") ? true : false;
                         }
 
-                        userSession.AuthUser = authenticatedUser;
+                        userSession.LoggedUser = authenticatedUser;
                     }
                     catch (Exception ex)
                     {

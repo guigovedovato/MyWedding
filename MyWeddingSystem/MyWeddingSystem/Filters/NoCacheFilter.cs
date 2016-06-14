@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace MyWeddingSystem.Filters
 {
-    public class NoCacheGlobalActionFilter : ActionFilterAttribute
+    public class NoCacheFilter : ActionFilterAttribute
     {
         public override void OnResultExecuted(ResultExecutedContext filterContext)
         {
