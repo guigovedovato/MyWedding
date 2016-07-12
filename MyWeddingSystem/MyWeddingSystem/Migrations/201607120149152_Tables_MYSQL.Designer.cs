@@ -7,13 +7,13 @@ namespace MyWeddingSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class FirstTables : IMigrationMetadata
+    public sealed partial class Tables_MYSQL : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstTables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Tables_MYSQL));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606071607542_FirstTables"; }
+            get { return "201607120149152_Tables_MYSQL"; }
         }
         
         string IMigrationMetadata.Source

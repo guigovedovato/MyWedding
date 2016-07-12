@@ -3,7 +3,8 @@ namespace MyWeddingSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     using System.Text;
-    public partial class FirstTables : DbMigration
+
+    public partial class Tables_MYSQL : DbMigration
     {
         public override void Up()
         {
@@ -13,8 +14,8 @@ namespace MyWeddingSystem.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         UserID = c.Int(nullable: false),
-                        UserName = c.String(maxLength: 30),
-                        CreatedAt = c.DateTime(nullable: false),
+                        UserName = c.String(maxLength: 30, storeType: "nvarchar"),
+                        CreatedAt = c.DateTime(nullable: false, precision: 0),
                         Quantity = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
@@ -26,17 +27,17 @@ namespace MyWeddingSystem.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Login = c.String(maxLength: 15),
-                        Name = c.String(maxLength: 30),
-                        Password = c.String(maxLength: 40),
+                        Login = c.String(maxLength: 15, storeType: "nvarchar"),
+                        Name = c.String(maxLength: 30, storeType: "nvarchar"),
+                        Password = c.String(maxLength: 40, storeType: "nvarchar"),
                         Profile = c.Int(nullable: false),
-                        FirstPassword = c.String(maxLength: 8),
-                        UpdatedAt = c.DateTime(),
+                        FirstPassword = c.String(maxLength: 8, storeType: "nvarchar"),
+                        UpdatedAt = c.DateTime(precision: 0),
                     })
                 .PrimaryKey(t => t.ID);
 
             var sql = new StringBuilder();
-            sql.Append("INSERT INTO [MyWedding].[dbo].[User] VALUES ('ADM', 'Administrador', 'aa1bf4646de67fd9086cf6c79007026c', 0, NULL, NULL);");
+            sql.Append("INSERT INTO mywedding.user VALUES (1, 'ADM', 'Administrador', 'aa1bf4646de67fd9086cf6c79007026c', 0, NULL, NULL);");
             Sql(sql.ToString());
 
             CreateTable(
@@ -44,17 +45,17 @@ namespace MyWeddingSystem.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Message = c.String(),
-                        StackTrace = c.String(),
-                        InnerException = c.String(),
-                        CreatedAt = c.DateTime(nullable: false),
+                        Message = c.String(unicode: false),
+                        StackTrace = c.String(unicode: false),
+                        InnerException = c.String(unicode: false),
+                        CreatedAt = c.DateTime(nullable: false, precision: 0),
                         LogType = c.Int(nullable: false),
-                        UserName = c.String(maxLength: 30),
+                        UserName = c.String(maxLength: 30, storeType: "nvarchar"),
                         UserID = c.Int(nullable: false),
-                        Controller = c.String(maxLength: 15),
-                        Action = c.String(maxLength: 15),
-                        Class = c.String(maxLength: 15),
-                        Method = c.String(maxLength: 15),
+                        Controller = c.String(maxLength: 15, storeType: "nvarchar"),
+                        Action = c.String(maxLength: 15, storeType: "nvarchar"),
+                        Class = c.String(maxLength: 15, storeType: "nvarchar"),
+                        Method = c.String(maxLength: 15, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.ID)
                 .Index(t => t.UserID);

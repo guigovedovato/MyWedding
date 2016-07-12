@@ -7,8 +7,7 @@ namespace MyWeddingSystem.Utils
     {
         public static string NewPassword()
         {
-            var guid = Guid.NewGuid().ToString();
-            Regex.Replace(guid, "[^0-9a-zA-Z]+", "");
+            string guid = Guid.NewGuid().ToString().Replace("-", "");
 
             Random rnd = new Random();
             var start = rnd.Next(0, guid.Length-8);

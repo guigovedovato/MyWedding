@@ -4,6 +4,7 @@ using MyWeddingSystem.Models.Model;
 
 namespace MyWeddingSystem.Models.Context
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public sealed class MyWeddingContext : DbContext
     {
         private static MyWeddingContext instance;

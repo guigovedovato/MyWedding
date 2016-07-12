@@ -57,6 +57,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -159,9 +167,9 @@
     </Compile>
     <Compile Include="Handlers\ExceptionHandler.cs" />
     <Compile Include="Handlers\TranslateHandler.cs" />
-    <Compile Include="Migrations\201606071607542_FirstTables.cs" />
-    <Compile Include="Migrations\201606071607542_FirstTables.Designer.cs">
-      <DependentUpon>201606071607542_FirstTables.cs</DependentUpon>
+    <Compile Include="Migrations\201607120149152_Tables_MYSQL.cs" />
+    <Compile Include="Migrations\201607120149152_Tables_MYSQL.Designer.cs">
+      <DependentUpon>201607120149152_Tables_MYSQL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\BaseRepository.cs" />
@@ -378,7 +386,9 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\skel.min.js" />
     <Content Include="Scripts\util.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -393,7 +403,11 @@
     <Content Include="Views\Logon\Unauthorized.cshtml" />
     <Content Include="Views\Logon\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201607120149152_Tables_MYSQL.resx">
+      <DependentUpon>201607120149152_Tables_MYSQL.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -401,7 +415,6 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="App_Browsers\qt.browser" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Photo\Index.cshtml" />
     <Content Include="Views\Log\Index.cshtml" />
@@ -414,11 +427,6 @@
     <Content Include="Views\User\Thanks.cshtml" />
     <Content Include="Views\User\SavePDF.cshtml" />
     <Content Include="Views\User\UserForm.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606071607542_FirstTables.resx">
-      <DependentUpon>201606071607542_FirstTables.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
