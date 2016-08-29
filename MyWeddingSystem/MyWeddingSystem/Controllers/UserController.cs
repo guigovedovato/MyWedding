@@ -63,7 +63,7 @@ namespace MyWeddingSystem.Controllers
             {
                 if(guests.Exists(g => g.UserID == user.ID))
                 {
-                    user.Confirmded = true;
+                    user.Confirmed = true;
                 }
             }
         }
@@ -101,7 +101,14 @@ namespace MyWeddingSystem.Controllers
                 {
                     CreateUser(userView);
                     mapper.Map<UserView, UserRepository>(userView, userRepository);
-                    ViewBag.UserName = userRepository.Insert().Name;
+                    var inserted = userRepository.Insert();
+                    ViewBag.UserName = inserted.Name;
+
+                    if (userView.Confirmed)
+                    {
+                        InsertGuest(userView, inserted.ID);
+                    }
+
                     return View("Thanks", new UserView());
                 }
                 else
@@ -117,6 +124,16 @@ namespace MyWeddingSystem.Controllers
                 userView.Message = string.Format(TranslateHandler.USERINSERTERROR, userView.Login);
                 return View(userView);
             }
+        }
+
+        private void InsertGuest(UserView userView, int userID)
+        {
+            GuestRepository guestRepository = new GuestRepository();
+            guestRepository.CreatedAt = DateTime.Now;
+            guestRepository.Quantity = userView.Quantity;
+            guestRepository.UserName = userView.Name;
+            guestRepository.UserID = userID;
+            guestRepository.Insert();
         }
 
         private void CreateUser(UserView userView)

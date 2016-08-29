@@ -42,14 +42,14 @@
                             }
                         }
                         <li>@Html.ActionLink(TranslateHandler.PHOTO, "Index", "Photo", null, new { @class = "a-hover" })</li>
-                        @if (AuthUser.Confirmded)
+                        @if (AuthUser.Confirmed)
                         {
                             <li>@Html.ActionLink(TranslateHandler.LOCAL, "Index", "Local", null, new { @class = "a-hover" })</li>
                         }
                         @if (AuthUser.Profile.Equals((int)MyWeddingSystem.Models.Model.Anemic.UserProfile.ADM))
                         {
                             <li>@Html.ActionLink(TranslateHandler.USER, "Index", "User", null, new { @class = "a-hover" })</li>
-                                <li>@Html.ActionLink(TranslateHandler.LOG, "Index", "Log", null, new { @class = "a-hover" })</li>
+                            <li>@Html.ActionLink(TranslateHandler.LOG, "Index", "Log", null, new { @class = "a-hover" })</li>
                         }
                         <li>@Html.ActionLink(TranslateHandler.LOGOUT, "Logout", "Logon", null, new { @class = "a-hover" })</li>
                     </ul>

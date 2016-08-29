@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MyWeddingSystem.Models.Context;
 using MyWeddingSystem.Models.Model.Anemic;
-using System.Data.Entity;
 
 namespace MyWeddingSystem.Models.Model
 {

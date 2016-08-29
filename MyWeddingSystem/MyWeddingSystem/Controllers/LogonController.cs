@@ -104,11 +104,11 @@ namespace MyWeddingSystem.Controllers
                         var confirmed = guestRepository.GetGuestByUserId(authenticatedUser.ID);
                         if (confirmed != null)
                         {
-                            authenticatedUser.Confirmded = authenticatedUser.Login.Equals("ADM") ? true : true;
+                            authenticatedUser.Confirmed = authenticatedUser.Login.Equals("ADM") ? true : true;
                         }
                         else
                         {
-                            authenticatedUser.Confirmded = authenticatedUser.Login.Equals("ADM") ? true : false;
+                            authenticatedUser.Confirmed = authenticatedUser.Login.Equals("ADM") ? true : false;
                         }
 
                         userSession.LoggedUser = authenticatedUser;

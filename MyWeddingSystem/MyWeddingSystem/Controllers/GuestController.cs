@@ -98,7 +98,7 @@ namespace MyWeddingSystem.Controllers
 
         private void Confirmed(GuestView model)
         {
-            userSession.LoggedUser.Confirmded = true;
+            userSession.LoggedUser.Confirmed = true;
         }
     }
 }

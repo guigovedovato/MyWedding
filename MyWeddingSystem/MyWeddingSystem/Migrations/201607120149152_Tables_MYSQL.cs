@@ -1,6 +1,5 @@
 namespace MyWeddingSystem.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     using System.Text;
 

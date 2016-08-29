@@ -13,21 +13,50 @@
                 @Html.ValidationMessageFor(model => model.Login, @TranslateHandler.ISREQUIRED, new { @class = "error" })
             </div>
         </div>
-            <div class="row uniform 50%">
-                <label for="Name">@TranslateHandler.USERNAME</label>
-                <div class="6u 12u(mobilep)">
-                    <input type="text" name="Name" id="Name" value="@Model.Name" />
-                    @Html.ValidationMessageFor(model => model.Name, @TranslateHandler.ISREQUIRED, new { @class = "error" })
-                </div>
+        <div class="row uniform 50%">
+            <label for="Name">@TranslateHandler.USERNAME</label>
+            <div class="6u 12u(mobilep)">
+                <input type="text" name="Name" id="Name" value="@Model.Name" />
+                @Html.ValidationMessageFor(model => model.Name, @TranslateHandler.ISREQUIRED, new { @class = "error" })
             </div>
-            <div class="row uniform">
-                <div class="12u">
-                    <ul class="actions align-center">
-                        <li><input type="submit" id="bt@{@ViewBag.Register}" value="@ViewBag.Register" class="button special" /></li>
-                    </ul>
-                </div>
+        </div>
+        <div class="row uniform 50%">
+            <div class="6u 12u(narrower)">
+                <input type="checkbox" id="CheckConfirmed" name="CheckConfirmed">
+                <label for="CheckConfirmed">@TranslateHandler.CONFIRMED</label>
+                <input type="hidden" name="Confirmed" id="Confirmed" value="@Model.Confirmed" />
             </div>
-            <span style="color:#e89980; padding-bottom:-8em;">@Model.Message</span>
+        </div>
+        <div class="row uniform 50%" style="display:none" id="divQuantity">
+            <label for="Quantity">@TranslateHandler.QUANTITY</label>
+            <div class="6u 12u(mobilep)">
+                @Html.EditorFor(model => model.Quantity)
+            </div>
+        </div>
+        <div class="row uniform">
+            <div class="12u">
+                <ul class="actions align-center">
+                    <li><input type="submit" id="bt@{@ViewBag.Register}" value="@ViewBag.Register" class="button special" /></li>
+                </ul>
+            </div>
+        </div>
+        <span style="color:#e89980; padding-bottom:-8em;">@Model.Message</span>
     }
     <a href="/User">@ViewBag.Back</a>
 </div>
+
+<script type="text/javascript">
+    $(function ($) {
+        $("#Confirmed").val(false);
+        $('#CheckConfirmed').click(function (event) {
+            if ($('#CheckConfirmed').is(':checked')) {
+                $("#divQuantity").show();
+                $("#Confirmed").val(true);
+            } else {
+                $("#Quantity").val("");
+                $("#Confirmed").val(false);
+                $("#divQuantity").hide();
+            }
+        })
+    });
+</script>

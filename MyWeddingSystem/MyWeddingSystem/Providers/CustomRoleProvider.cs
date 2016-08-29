@@ -1,9 +1,4 @@
-﻿using MyWeddingSystem.Models.Context;
-using MyWeddingSystem.Models.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MyWeddingSystem.Models.Model;
 using System.Web.Security;
 
 namespace MyWeddingSystem.Providers

@@ -46,6 +46,8 @@
 
         public static string USERNAME = System.Configuration.ConfigurationManager.AppSettings["USERNAME"];
         public static string USERLOGIN = System.Configuration.ConfigurationManager.AppSettings["USERLOGIN"];
+        public static string CONFIRMED = System.Configuration.ConfigurationManager.AppSettings["CONFIRMED"];
+        public static string QUANTITY = System.Configuration.ConfigurationManager.AppSettings["QUANTITY"];
         #endregion
 
         #region Front-End

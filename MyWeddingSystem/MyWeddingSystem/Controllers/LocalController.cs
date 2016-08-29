@@ -15,7 +15,7 @@ namespace MyWeddingSystem.Controllers
             ViewBag.Title = TranslateHandler.LOCALPAGE;
             ViewBag.Back = TranslateHandler.BACKTOLIST;
 
-            if (userSession.LoggedUser.Confirmded)
+            if (userSession.LoggedUser.Confirmed)
             {
                 return View();
             }

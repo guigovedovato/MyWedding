@@ -16,6 +16,7 @@ namespace MyWeddingSystem.Models.ViewModel
         public int Profile { get; set; }
         public string FirstPassword { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public bool Confirmded { get; set; }
+        public bool Confirmed { get; set; }
+        public int Quantity { get; set; }
     }
 }
