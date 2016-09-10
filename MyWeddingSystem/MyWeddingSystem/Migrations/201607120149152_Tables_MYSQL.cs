@@ -36,7 +36,7 @@ namespace MyWeddingSystem.Migrations
                 .PrimaryKey(t => t.ID);
 
             var sql = new StringBuilder();
-            sql.Append("INSERT INTO mywedding.user VALUES (1, 'ADM', 'Administrador', 'aa1bf4646de67fd9086cf6c79007026c', 0, NULL, NULL);");
+            sql.Append("INSERT INTO mywedding.User VALUES (1, 'ADM', 'Administrador', 'aa1bf4646de67fd9086cf6c79007026c', 0, NULL, NULL);");
             Sql(sql.ToString());
 
             CreateTable(
