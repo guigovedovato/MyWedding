@@ -11,7 +11,6 @@ namespace MyWeddingSystem.Models.Model
     {
         [Key]
         public int ID { get; set; }
-        [Index]
         public int UserID { get; set; }
         [MaxLength(30)]
         public string UserName { get; set; }

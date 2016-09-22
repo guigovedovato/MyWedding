@@ -21,7 +21,6 @@ namespace MyWeddingSystem.Models.Model
         public int LogType { get; set; }
         [MaxLength(30)]
         public string UserName { get; set; }
-        [Index]
         public int UserID { get; set; }
         [MaxLength(15)]
         public string Controller { get; set; }

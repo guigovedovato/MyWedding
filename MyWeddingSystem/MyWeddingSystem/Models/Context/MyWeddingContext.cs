@@ -4,12 +4,11 @@ using MyWeddingSystem.Models.Model;
 
 namespace MyWeddingSystem.Models.Context
 {
-    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public sealed class MyWeddingContext : DbContext
     {
         private static MyWeddingContext instance;
 
-        public MyWeddingContext() : base("MyWedding") { }
+        public MyWeddingContext() : base("name=MyWedding") { }
 
         public static MyWeddingContext Instance
         {
@@ -27,8 +26,6 @@ namespace MyWeddingSystem.Models.Context
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Properties<decimal>().Configure(c => c.HasPrecision(18, 5));
         }
 
         public DbSet<UserRepository> Users { get; set; }

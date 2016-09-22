@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyWeddingSystem.Models.ViewModel
 {
+    [Serializable()]
     public class GuestView : BaseView
     {
         public int ID { get; set; }

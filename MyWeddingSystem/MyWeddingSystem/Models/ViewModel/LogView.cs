@@ -2,6 +2,7 @@
 
 namespace MyWeddingSystem.Models.ViewModel
 {
+    [Serializable()]
     public class LogView
     {
         public int ID { get; set; }

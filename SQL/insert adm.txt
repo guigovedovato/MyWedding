@@ -1,0 +1,1 @@
+INSERT INTO mywedding.User VALUES (1, 'ADM', 'Administrador', 'aa1bf4646de67fd9086cf6c79007026c', 0, NULL, NULL);

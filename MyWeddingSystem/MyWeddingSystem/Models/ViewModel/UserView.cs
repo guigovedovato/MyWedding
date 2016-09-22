@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyWeddingSystem.Models.ViewModel
 {
+    [Serializable()]
     public class UserView : BaseView
     {
         public int ID { get; set; }
