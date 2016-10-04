@@ -73,6 +73,7 @@
         public static string USER = System.Configuration.ConfigurationManager.AppSettings["USER"];
         public static string LOG = System.Configuration.ConfigurationManager.AppSettings["LOG"];
         public static string LOGOUT = System.Configuration.ConfigurationManager.AppSettings["LOGOUT"];
+        public static string GIFT = System.Configuration.ConfigurationManager.AppSettings["GIFT"];
         #endregion
     }
 }
