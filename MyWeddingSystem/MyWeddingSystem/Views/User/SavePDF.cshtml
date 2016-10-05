@@ -11,10 +11,12 @@
         {
             foreach (var item in Model)
             {
-                <p style="border: 1px solid black; margin: 0 1px 5px 0; padding: 10px; display:inline-block; font-size:large; width:194px;">
+                <div style="border: 1px solid silver; padding: 2px 10px 10px 10px; display:inline-block; width:268px; height:130px; margin-bottom:5px;">
+                    <img src="@Server.MapPath("~/Content/Images/birds.jpg")" style="width:74px; margin-bottom:3px;" />
+                    <div style="text-align:center; width:100%; font-size:large; margin-bottom:5px; color:darkcyan;">http://vanessaerodrigo.info</div>
                     Usuário: <b>@item.Login.ToLower()</b> <br />
                     Senha: <b>@item.FirstPassword</b>
-                </p>
+                </div>
             }
         }
         else

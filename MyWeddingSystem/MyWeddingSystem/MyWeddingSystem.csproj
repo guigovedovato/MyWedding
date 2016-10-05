@@ -156,6 +156,7 @@
     <Content Include="Content\css\main.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\banner.jpg" />
+    <Content Include="Content\Images\birds.jpg" />
     <Content Include="Content\Images\login.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\photos\01 - Esperando.jpg" />
