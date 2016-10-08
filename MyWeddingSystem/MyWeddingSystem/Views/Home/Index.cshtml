@@ -27,7 +27,7 @@
             <section>
                 <span class="icon major fa-coffee accent2"></span>
                 <h3>Celebração</h3>
-                <p>Iremos celebrar nossa união no sábado pela manhã no dia <b style="font-size:1.5em">@System.Configuration.ConfigurationManager.AppSettings["WEDDINGDATE"].ToString()</b> às <b style="font-size:1.5em">9h</b> com uma cerimônia espiritual realizada pelos amigos do Centro Espírita <b>Francisco de Assis</b> e servindo um delicioso <i>BRUNCH</i>.</p>
+                <p>Iremos celebrar nossa união no sábado pela manhã no dia <b style="font-size:1.5em">@System.Configuration.ConfigurationManager.AppSettings["WEDDINGDATE"].ToString()</b> às <b style="font-size:1.5em">10h</b> com uma cerimônia espiritual realizada pelos amigos do Centro Espírita <b>Francisco de Assis</b> e servindo um delicioso <i>BRUNCH</i>.</p>
             </section>
             <section>
                 <span class="icon major fa-beer accent3"></span>
@@ -49,7 +49,7 @@
         </div>
     </section>
 
-    @*<div class="row">
+    <div class="row">
         <div class="6u 12u(narrower)">
 
             <section class="box special">
@@ -65,13 +65,17 @@
 
             <section class="box special">
                 <span class="image featured"><img src="~/Content/Images/pic03.jpg" alt="" /></span>
-                <h3>Contribuição</h3>
-                <p>E quem quiser e puder contribuir com nossa caixinha de viagem será muito bem vindo, podendo ser depositado em uma urna que estará ao lado da caixa de cartinhas. Agradecemos de coração.<br /><br />
+                <h3>Presente</h3>
+                <p>
+                    Disponibilizamos no menu "<a href="@System.Configuration.ConfigurationManager.AppSettings["GIFTSITE"].ToString()" target="_blank">@MyWeddingSystem.Handlers.TranslateHandler.GIFT</a>"
+                    o link para o site de presentes <a href="https://www.icasei.com.br/" target="_blank">ICasei!</a>,
+                    onde há a nossa lista de presentes virtual que será revertido em dinheiro, pois não podemos levar nada de material conosco.
+                    Agradecemos de coração.<br /><br />
                 </p>
             </section>
 
         </div>
-    </div>*@
+    </div>
 
 </section>
 
