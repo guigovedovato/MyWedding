@@ -15,14 +15,7 @@ namespace MyWeddingSystem.Controllers
             ViewBag.Title = TranslateHandler.LOCALPAGE;
             ViewBag.Back = TranslateHandler.BACKTOLIST;
 
-            if (userSession.LoggedUser.Confirmed)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Unauthorized", "Logon");
-            }
+            return View();
         }
     }
 }
