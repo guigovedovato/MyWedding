@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using MyWeddingSystem.Handlers;
 using MyWeddingSystem.Attributes;
-using MyWeddingSystem.Models.Model.Anemic;
 using MyWeddingSystem.Models.Model;
 using AutoMapper;
 using MyWeddingSystem.Models.ViewModel;
+using MyWeddingSystem.Models.Enum;
 
 namespace MyWeddingSystem.Controllers
 {

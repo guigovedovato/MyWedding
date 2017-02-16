@@ -6,9 +6,9 @@ using System.Web.Routing;
 using System.Web.Security;
 using MyWeddingSystem.Handlers;
 using MyWeddingSystem.Models.Model;
-using MyWeddingSystem.Models.Model.Anemic;
 using AutoMapper;
 using MyWeddingSystem.Utils;
+using MyWeddingSystem.Models.Enum;
 
 namespace MyWeddingSystem.Controllers
 {
@@ -104,11 +104,11 @@ namespace MyWeddingSystem.Controllers
                         var confirmed = guestRepository.GetGuestByUserId(authenticatedUser.ID);
                         if (confirmed != null)
                         {
-                            authenticatedUser.Confirmed = authenticatedUser.Login.Equals("ADM") ? true : true;
+                            authenticatedUser.Confirmed = authenticatedUser.Profile.Equals(UserProfile.ADM) ? true : true;
                         }
                         else
                         {
-                            authenticatedUser.Confirmed = authenticatedUser.Login.Equals("ADM") ? true : false;
+                            authenticatedUser.Confirmed = authenticatedUser.Profile.Equals(UserProfile.ADM) ? true : false;
                         }
 
                         userSession.LoggedUser = authenticatedUser;

@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using MyWeddingSystem.Models.Model;
 using MyWeddingSystem.Models.ViewModel;
 using AutoMapper;
-using MyWeddingSystem.Models.Model.Anemic;
+using MyWeddingSystem.Models.Anemic;
 
 namespace MyWeddingSystem.Controllers
 {

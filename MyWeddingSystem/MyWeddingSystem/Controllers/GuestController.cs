@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using MyWeddingSystem.Handlers;
-using MyWeddingSystem.Models.Model.Anemic;
 using MyWeddingSystem.Models.Model;
 using AutoMapper;
 using MyWeddingSystem.Models.ViewModel;
 using System.Linq;
+using MyWeddingSystem.Models.Enum;
 
 namespace MyWeddingSystem.Controllers
 {

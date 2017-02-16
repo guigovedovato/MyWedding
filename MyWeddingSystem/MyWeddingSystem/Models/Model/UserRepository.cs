@@ -3,7 +3,7 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MyWeddingSystem.Models.Context;
-using MyWeddingSystem.Models.Model.Anemic;
+using MyWeddingSystem.Models.Enum;
 
 namespace MyWeddingSystem.Models.Model
 {

@@ -59,10 +59,6 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rotativa.1.6.4\lib\net40\Rotativa.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -135,11 +131,11 @@
     <Compile Include="Models\Context\BaseRepository.cs" />
     <Compile Include="Models\Context\IBaseRepository.cs" />
     <Compile Include="Models\Context\MyWeddingContext.cs" />
-    <Compile Include="Models\Model\Anemic\LogLocal.cs" />
-    <Compile Include="Models\Model\Anemic\UserProfile.cs" />
+    <Compile Include="Models\Anemic\LogLocal.cs" />
+    <Compile Include="Models\Enum\UserProfile.cs" />
     <Compile Include="Models\Model\GuestRepository.cs" />
     <Compile Include="Models\Model\LogRepository.cs" />
-    <Compile Include="Models\Model\Anemic\LogType.cs" />
+    <Compile Include="Models\Enum\LogType.cs" />
     <Compile Include="Models\Model\UserRepository.cs" />
     <Compile Include="Models\ViewModel\BaseView.cs" />
     <Compile Include="Models\ViewModel\GuestView.cs" />
@@ -336,7 +332,6 @@
     <Content Include="Content\unitegallery\themes\video\ug-theme-video.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\ie\backgroundsize.min.htc" />
     <Content Include="Scripts\ie\html5shiv.js" />
     <Content Include="Scripts\ie\PIE.htc" />
@@ -385,12 +380,12 @@
     <Content Include="Views\Log\LogDetail.cshtml" />
     <Content Include="Views\User\Insert.cshtml" />
     <Content Include="Views\User\Thanks.cshtml" />
-    <Content Include="Views\User\SavePDF.cshtml" />
     <Content Include="Views\User\UserForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Deploy.pubxml" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

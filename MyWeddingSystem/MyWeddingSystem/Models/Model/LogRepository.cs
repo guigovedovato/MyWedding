@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MyWeddingSystem.Models.Context;
 using MyWeddingSystem.Models.ViewModel;
-using MyWeddingSystem.Models.Model.Anemic;
+using MyWeddingSystem.Models.Anemic;
+using MyWeddingSystem.Models.Enum;
 
 namespace MyWeddingSystem.Models.Model
 {

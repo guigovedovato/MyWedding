@@ -1,5 +1,4 @@
-﻿using MyWeddingSystem.Handlers;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyWeddingSystem.Models.ViewModel

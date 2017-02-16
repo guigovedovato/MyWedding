@@ -2,13 +2,13 @@
 using MyWeddingSystem.Attributes;
 using MyWeddingSystem.Handlers;
 using MyWeddingSystem.Models.Model;
-using MyWeddingSystem.Models.Model.Anemic;
 using MyWeddingSystem.Models.ViewModel;
 using MyWeddingSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
+using MyWeddingSystem.Models.Enum;
 
 namespace MyWeddingSystem.Controllers
 {
@@ -143,29 +143,6 @@ namespace MyWeddingSystem.Controllers
             userView.Profile = (int)UserProfile.LOGGED;
             userView.UpdatedAt = null;
             userView.UpdatedAt = DateTime.Now;
-        }
-
-        [HttpGet]
-        public ActionResult SavePDF()
-        {
-            local.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
-            local.Action = this.ControllerContext.RouteData.Values["action"].ToString();
-
-            try
-            {
-                var model = mapper.Map<List<UserRepository>, List<UserView>>(userRepository.GetAll().Where(x => !x.Login.Equals("ADM")).ToList());
-                //return View(model);
-                return new Rotativa.ViewAsPdf("SavePDF", model) { FileName = "MyWeddingLoginList.pdf" };
-            }
-            catch (Exception ex)
-            {
-                logRepository.Insert(ex, userSession.LoggedUser, LogType.ERROR, local);
-
-                var model = new UserView() { Message = TranslateHandler.USERPRINT };
-                var listModel = new List<UserView>();
-                listModel.Add(model);
-                return View(listModel);
-            }
         }
     }
 }
